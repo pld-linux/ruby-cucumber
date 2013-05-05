@@ -1,3 +1,5 @@
+# TODO
+# - patch rspec to integrate cucumber rules too in autotest/discover.rb
 %define	pkgname	cucumber
 Summary:	Tool to execute plain-text documents as functional tests
 Name:		ruby-%{pkgname}
@@ -37,6 +39,9 @@ cp -a bin/* $RPM_BUILD_ROOT%{_bindir}
 
 %{__rm} $RPM_BUILD_ROOT%{ruby_vendorlibdir}/README.rdoc
 
+# conflicts with ruby-rspec-core-2.13.1
+%{__rm} $RPM_BUILD_ROOT%{ruby_vendorlibdir}/autotest/discover.rb
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -54,4 +59,3 @@ rm -rf $RPM_BUILD_ROOT
 %{ruby_vendorlibdir}/autotest/cucumber_rails_rspec2.rb
 %{ruby_vendorlibdir}/autotest/cucumber_rspec.rb
 %{ruby_vendorlibdir}/autotest/cucumber_rspec2.rb
-%{ruby_vendorlibdir}/autotest/discover.rb
