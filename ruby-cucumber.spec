@@ -4,7 +4,7 @@
 Summary:	Tool to execute plain-text documents as functional tests
 Name:		ruby-%{pkgname}
 Version:	1.2.1
-Release:	2
+Release:	3
 License:	MIT
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
@@ -20,6 +20,9 @@ Requires:	ruby-gherkin >= 2.11.0
 Requires:	ruby-json >= 1.4.6
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+# do not generate python dependency, py_support is optional
+%define		_noautoreqfiles %{ruby_vendorlibdir}/cucumber/py_support
 
 %description
 Cucumber lets software development teams describe how software should
@@ -49,8 +52,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README.md History.md LICENSE
 %attr(755,root,root) %{_bindir}/cucumber
-%{ruby_vendorlibdir}/%{pkgname}.rb
-%{ruby_vendorlibdir}/%{pkgname}
+%{ruby_vendorlibdir}/cucumber.rb
+%{ruby_vendorlibdir}/cucumber
 
 %{ruby_vendorlibdir}/autotest/cucumber.rb
 %{ruby_vendorlibdir}/autotest/cucumber_mixin.rb
