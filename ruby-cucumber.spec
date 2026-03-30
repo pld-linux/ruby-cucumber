@@ -2,7 +2,7 @@
 Summary:	Behaviour Driven Development with elegance and joy
 Name:		ruby-%{pkgname}
 Version:	10.2.0
-Release:	1
+Release:	2
 License:	MIT
 Group:		Development/Languages
 Source0:	https://rubygems.org/downloads/%{pkgname}-%{version}.gem
